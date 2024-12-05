@@ -13,9 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('contributions', function (Blueprint $table) {
-            $table->uuid('id');
-
-
+            $table->uuid('id')->primary();
             $table->decimal('amount', 10, 2);
             $table->string('status')->defaultValue(ContributionStatus::PENDING);
 

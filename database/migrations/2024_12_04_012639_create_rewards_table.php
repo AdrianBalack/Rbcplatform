@@ -12,15 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('rewards', function (Blueprint $table) {
-            $table->uuid('id');
 
-            $table->string(column: 'title');
-            $table->string('description');
-            $table->decimal('amount' . 15, 2);
-            $table->integer('limited_quantity');
-            $table->dateTime('estimated_delivery');
+            $table->uuid('id')->primary();
+            $table->string('title');
+            $table->text('description')->nullable();
+            $table->decimal('amount', 15, 2);
+            $table->integer('limited_quantity')->nullable();
+            $table->dateTime('estimated_delivery')->nullable();
             $table->foreignUuid('project_id')->constrained('projects')->onDelete('cascade');
-
             $table->timestamps();
             $table->softDeletes();
         });

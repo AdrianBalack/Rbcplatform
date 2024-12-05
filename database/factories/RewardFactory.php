@@ -18,12 +18,12 @@ class RewardFactory extends Factory
     public function definition(): array
     {
         return [
-            'project_id' => Project::factory(),
             'title' => $this->faker->sentence(),
             'description' => $this->faker->paragraph(),
             'amount' => $this->faker->numberBetween(10, 500),
             'limited_quantity' => $this->faker->numberBetween(1, 100),
             'estimated_delivery' => $this->faker->dateTime(),
+            'project_id' => Project::factory(),
         ];
     }
 }

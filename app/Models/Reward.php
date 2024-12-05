@@ -11,20 +11,20 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Reward extends Model
 {
     /** @use HasFactory<\Database\Factories\RewardsFactory> */
-    use HasFactory;
-    use HasUuids, SoftDeletes;
+
+    use HasFactory, HasUuids, SoftDeletes;
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
+        'project_id',
         'title',
         'description',
         'amount',
         'limited_quantity',
-        'estimated_delivery',
-        'project_id'
+        'estimated_delivery'
     ];
     /**
      * The attributes that are mass assignable.
